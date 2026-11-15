@@ -1,8 +1,8 @@
 .contenuto {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  font-size: 17px;
+  gap: 14px;
+  font-size: 19px;
 }
 
 .selettori {
@@ -17,15 +17,15 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--colore-testo-secondario);
 }
 
 .selettori select {
   width: 100%;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  padding: 12px 10px;
+  padding: 13px 10px;
 }
 
 .vuoto {
@@ -43,7 +43,7 @@
 
 .disposizioni h2 {
   margin: 0 0 8px;
-  font-size: 15px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--colore-testo-secondario);
@@ -59,12 +59,12 @@
 }
 
 .chipDisposizione {
-  padding: 7px 14px;
+  padding: 8px 15px;
   border-radius: 14px;
   background: var(--colore-accento);
   color: #fff;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .sezione {
@@ -75,9 +75,9 @@
 
 .sezione > summary {
   cursor: pointer;
-  padding: 14px 12px;
+  padding: 15px 12px;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 19px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -93,7 +93,7 @@
 .conteggio {
   margin-left: auto;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--colore-testo-secondario);
 }
 
@@ -123,7 +123,7 @@
 
 .meta {
   padding: 0 2px 6px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--colore-testo-secondario);
 }
 
@@ -162,10 +162,10 @@
 
 .chip {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border: 1px solid var(--colore-bordo);
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--colore-testo-secondario);
   white-space: nowrap;
@@ -190,8 +190,8 @@
 }
 
 .elencoDistaccamenti input[type='checkbox'] {
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
   flex: none;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .capitolo {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--colore-testo-secondario);
   white-space: nowrap;
@@ -213,7 +213,7 @@
 
 .disposizione {
   margin-left: auto;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--colore-testo-secondario);
   text-align: right;
   white-space: nowrap;
@@ -230,7 +230,7 @@
 
 .distaccamento h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 19px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -240,15 +240,15 @@
 .pallino {
   display: inline-block;
   flex: none;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 
 .simboli {
   display: inline-flex;
   gap: 1px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
 }
 
@@ -264,8 +264,8 @@
 }
 
 .filtroFase {
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: 9px 13px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--colore-testo-secondario);
   background: transparent;
@@ -285,7 +285,7 @@
   flex-wrap: wrap;
   gap: 12px;
   padding-bottom: 6px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--colore-testo-secondario);
 }
 
@@ -296,7 +296,7 @@
 }
 
 .origine {
-  font-size: 13px;
+  font-size: 15px;
   font-style: italic;
   font-weight: 400;
   color: var(--colore-testo-secondario);

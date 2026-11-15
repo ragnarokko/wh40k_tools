@@ -8,13 +8,20 @@
 .titolo {
   margin: 0;
   padding: 12px 16px 4px;
-  font-size: 21px;
+  font-size: 23px;
 }
 
 .corpo {
   flex: 1;
-  padding: 12px 12px calc(16px + env(safe-area-inset-bottom));
-  max-width: 720px;
+  padding: 10px 10px calc(16px + env(safe-area-inset-bottom));
   width: 100%;
   margin: 0 auto;
+}
+
+/* Il limite di larghezza vale solo su schermi grandi (desktop/tablet): su telefono, anche in
+   orizzontale, il contenuto occupa tutto lo schermo. */
+@media (min-width: 1024px) {
+  .corpo {
+    max-width: 900px;
+  }
 }
