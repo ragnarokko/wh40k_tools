@@ -1,0 +1,636 @@
+.contenitore {
+  display: flex;
+  flex-direction: column;
+}
+
+.setup,
+.partita {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 17px;
+}
+
+.gruppo {
+  margin: 0;
+  padding: 10px 12px 14px;
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gruppoBlu legend {
+  color: #3b82f6;
+}
+
+.gruppoRosso legend {
+  color: #ef4444;
+}
+
+.gruppo legend {
+  font-weight: 700;
+  font-size: 17px;
+  padding: 0 4px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--colore-testo-secondario);
+}
+
+.campo select {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px 10px;
+}
+
+.scelte {
+  display: flex;
+  gap: 6px;
+}
+
+.scelta {
+  flex: 1;
+  background: transparent;
+  color: var(--colore-testo-secondario);
+  border: 1px solid var(--colore-bordo);
+  padding: 10px 8px;
+  font-size: 16px;
+}
+
+.scelta:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sceltaAttiva,
+.sceltaAttiva:hover {
+  background: var(--colore-accento);
+  border-color: var(--colore-accento);
+  color: #fff;
+}
+
+.fisse {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--colore-testo);
+}
+
+.fisse label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fisse input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.avvia {
+  padding: 13px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.avvia:disabled,
+.piccolo:disabled,
+.carta:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.vuoto {
+  color: var(--colore-testo-secondario);
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Statistica dei round, a fondo pagina */
+.statistiche {
+  border-top: 1px solid var(--colore-bordo);
+  padding-top: 10px;
+}
+
+.statistiche table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: center;
+}
+
+.statistiche th {
+  font-weight: 600;
+  color: var(--colore-testo-secondario);
+  padding: 4px 3px;
+}
+
+.statistiche td {
+  padding: 4px 3px;
+}
+
+.statistiche td:first-child {
+  text-align: left;
+  color: var(--colore-testo-secondario);
+}
+
+.statistiche tbody td:nth-child(2),
+.statistiche tbody td:nth-child(4),
+.statistiche tfoot tr:first-child td:nth-child(2),
+.statistiche tfoot tr:first-child td:nth-child(4) {
+  border-left: 1px solid var(--colore-bordo);
+}
+
+.colBlu {
+  color: #3b82f6 !important;
+  border-left: 1px solid var(--colore-bordo);
+}
+
+.colRosso {
+  color: #ef4444 !important;
+  border-left: 1px solid var(--colore-bordo);
+}
+
+.roundCorrente td {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 700;
+}
+
+.zero {
+  color: var(--colore-testo-secondario);
+  opacity: 0.5;
+}
+
+.statistiche tfoot td {
+  border-top: 1px solid var(--colore-bordo);
+  font-weight: 700;
+}
+
+.totaleRiga {
+  font-size: 17px;
+  border-left: 1px solid var(--colore-bordo);
+}
+
+/* Turni */
+.turni {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.turni .piccolo {
+  padding: 10px 14px;
+  font-size: 18px;
+}
+
+.turnoInfo {
+  flex: 1;
+  text-align: center;
+}
+
+.round {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.round small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--colore-testo-secondario);
+}
+
+.chiTocca {
+  color: var(--colore-testo-secondario);
+  font-size: 16px;
+}
+
+/* Scheda giocatore */
+.scheda {
+  border: 1px solid var(--colore-bordo);
+  border-top: 3px solid var(--colore-giocatore);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.schedaAttiva {
+  box-shadow: 0 0 0 1px var(--colore-giocatore);
+}
+
+.schedaTesta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.nomeGiocatore {
+  color: var(--colore-giocatore);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 17px;
+}
+
+.chipTurno,
+.chip {
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--colore-testo-secondario);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.totaleVp {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.totaleVp small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--colore-testo-secondario);
+}
+
+.barre {
+  display: flex;
+  justify-content: space-between;
+  color: var(--colore-testo-secondario);
+  font-size: 14px;
+}
+
+.blocco {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid var(--colore-bordo);
+  padding-top: 8px;
+}
+
+.bloccoTitolo {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--colore-testo-secondario);
+}
+
+.tipoSec {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.nomeMissione {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.iconaRegole {
+  margin-left: 6px;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1.4;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.iconaRegole:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--colore-bordo);
+}
+
+.segna {
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+/* Riepilogo (sola lettura) di una missione */
+.sezioneCorrente {
+  border-left: 3px solid var(--colore-accento);
+  padding-left: 10px;
+}
+
+.rigaLettura {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.legamento {
+  flex-shrink: 0;
+  min-width: 28px;
+  font-size: 14px;
+  color: var(--colore-testo-secondario);
+  text-transform: uppercase;
+}
+
+.storico {
+  color: var(--colore-testo-secondario);
+  font-size: 14px;
+}
+
+.secondaria {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nomeSecondaria {
+  flex: 1;
+  font-weight: 600;
+}
+
+.piccolo {
+  padding: 7px 11px;
+  font-size: 15px;
+}
+
+.secondario {
+  background: transparent;
+  border: 1px solid var(--colore-bordo);
+  color: var(--colore-testo-secondario);
+}
+
+.secondario:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--colore-testo);
+}
+
+.azioniSec {
+  display: flex;
+  gap: 6px;
+}
+
+.log {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--colore-testo-secondario);
+}
+
+.log li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.log li span {
+  flex: 1;
+}
+
+.log b {
+  color: var(--colore-testo);
+}
+
+.x {
+  background: transparent;
+  color: var(--colore-testo-secondario);
+  padding: 2px 7px;
+  font-size: 14px;
+}
+
+.x:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--colore-testo);
+}
+
+.nuova {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.testoConferma {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Dialoghi (Modale) */
+.notaMissione {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--colore-testo-secondario);
+}
+
+.quandoPescata {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  border-left: 3px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.azioneMissione {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  border-left: 3px solid #e0b34a;
+  background: rgba(224, 179, 74, 0.1);
+}
+
+.azioneTitolo {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.azioneMissione dl {
+  margin: 0;
+}
+
+.azioneMissione dl > div {
+  display: flex;
+  gap: 6px;
+}
+
+.azioneMissione dt {
+  flex: 0 0 70px;
+  font-weight: 700;
+  color: var(--colore-testo-secondario);
+}
+
+.azioneMissione dd {
+  margin: 0;
+}
+
+.avviso {
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: #e0b34a;
+}
+
+.sezione {
+  margin-bottom: 14px;
+}
+
+.sezione h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.momento {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--colore-testo-secondario);
+}
+
+.voci {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alternative {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.riga {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.riga input[type='radio'],
+.riga input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.testoRiga {
+  flex: 1;
+}
+
+.vp {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--colore-accento);
+}
+
+.cumulativo {
+  margin: 6px 0 0 22px;
+}
+
+.contatore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.contatore button {
+  padding: 4px 11px;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.contatoreValore {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.scarta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.scarta input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}
+
+.piede {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--colore-bordo);
+  padding-top: 10px;
+}
+
+.totaleDialogo {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.totaleDialogo .avviso {
+  display: block;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.azioniDialogo {
+  display: flex;
+  gap: 8px;
+}
+
+.azioniDialogo button {
+  padding: 9px 14px;
+  font-size: 16px;
+}
+
+.elencoCarte {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.carta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  background: transparent;
+  border: 1px solid var(--colore-bordo);
+  color: var(--colore-testo);
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+.carta:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.carta span:first-child {
+  flex: 1;
+}
