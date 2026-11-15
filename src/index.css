@@ -1,0 +1,67 @@
+:root {
+  --colore-sfondo: #1e1e24;
+  --colore-pannello: #262631;
+  --colore-bordo: #3a3a46;
+  --colore-testo: #eaeaf0;
+  --colore-testo-secondario: #9a9aab;
+  --colore-accento: #5b8def;
+  --colore-accento-hover: #4a75d1;
+  --colore-pericolo: #e15554;
+  --radius: 6px;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--colore-sfondo);
+  color: var(--colore-testo);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+button,
+select,
+input {
+  font-family: inherit;
+  color: inherit;
+}
+
+select,
+input[type='text'],
+input[type='number'] {
+  background: var(--colore-pannello);
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--radius);
+  padding: 7px 8px;
+}
+
+button {
+  background: var(--colore-accento);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--colore-accento-hover);
+}
+
+a {
+  color: var(--colore-accento);
+}
