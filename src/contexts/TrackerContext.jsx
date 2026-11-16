@@ -10,6 +10,9 @@ const GIOCATORI = ['blu', 'rosso'];
 
 const giocatoreIniziale = () => ({
   disposizione: '',
+  // Punti comando: partono da 1, +1 all'inizio di ogni proprio turno (vedi avanzaTurno/tornaIndietro),
+  // modificabili anche a mano con i pulsanti +/-.
+  cp: 1,
   // 'tattiche' (si pescano a caso o si scelgono a mano) o 'fisse' (due scelte all'inizio).
   tipoSecondarie: 'tattiche',
   fisse: [],
@@ -109,7 +112,7 @@ export function TrackerProvider({ children }) {
       const giocatori = {};
       for (const g of GIOCATORI) {
         // Le tattiche non si pescano da sole: si sceglie tra "Pesca" e "Scegli" nella scheda.
-        const giocatore = { ...prev.giocatori[g], primaria: {}, attive: [], scartate: [], log: [] };
+        const giocatore = { ...prev.giocatori[g], cp: 1, primaria: {}, attive: [], scartate: [], log: [] };
         if (giocatore.tipoSecondarie === 'fisse') {
           giocatore.attive = giocatore.fisse.map((carta) => ({ carta, modo: 'fissa' }));
         }
@@ -121,11 +124,27 @@ export function TrackerProvider({ children }) {
 
   const nuovaPartita = useCallback(() => setStato(TRACKER_INIZIALE), []);
 
+  // Dà 1 CP al giocatore il cui turno inizia (minimo 0, per restare simmetrico con tornaIndietro).
+  const concedeCp = (giocatori, giocatore, delta) => ({
+    ...giocatori,
+    [giocatore]: { ...giocatori[giocatore], cp: Math.max(0, (giocatori[giocatore].cp ?? 0) + delta) },
+  });
+
   const avanzaTurno = useCallback(() => {
     setStato((prev) => {
       if (prev.finita) return prev;
-      if (prev.turnoDi === prev.primo) return { ...prev, turnoDi: altro(prev.primo) };
-      if (prev.round < LIMITI_VP.round) return { ...prev, round: prev.round + 1, turnoDi: prev.primo };
+      if (prev.turnoDi === prev.primo) {
+        const nuovoTurno = altro(prev.primo);
+        return { ...prev, turnoDi: nuovoTurno, giocatori: concedeCp(prev.giocatori, nuovoTurno, 1) };
+      }
+      if (prev.round < LIMITI_VP.round) {
+        return {
+          ...prev,
+          round: prev.round + 1,
+          turnoDi: prev.primo,
+          giocatori: concedeCp(prev.giocatori, prev.primo, 1),
+        };
+      }
       return { ...prev, finita: true };
     });
   }, []);
@@ -133,11 +152,25 @@ export function TrackerProvider({ children }) {
   const tornaIndietro = useCallback(() => {
     setStato((prev) => {
       if (prev.finita) return { ...prev, finita: false };
-      if (prev.turnoDi !== prev.primo) return { ...prev, turnoDi: prev.primo };
-      if (prev.round > 1) return { ...prev, round: prev.round - 1, turnoDi: altro(prev.primo) };
+      if (prev.turnoDi !== prev.primo) {
+        return { ...prev, turnoDi: prev.primo, giocatori: concedeCp(prev.giocatori, prev.turnoDi, -1) };
+      }
+      if (prev.round > 1) {
+        return {
+          ...prev,
+          round: prev.round - 1,
+          turnoDi: altro(prev.primo),
+          giocatori: concedeCp(prev.giocatori, prev.primo, -1),
+        };
+      }
       return prev;
     });
   }, []);
+
+  const modificaCp = useCallback(
+    (giocatore, delta) => aggiornaGiocatore(giocatore, (g) => ({ ...g, cp: Math.max(0, (g.cp ?? 0) + delta) })),
+    [aggiornaGiocatore],
+  );
 
   // Una sola voce di primaria per round: registrare di nuovo lo stesso round la sostituisce.
   const registraPrimaria = useCallback(
@@ -220,6 +253,7 @@ export function TrackerProvider({ children }) {
       nuovaPartita,
       avanzaTurno,
       tornaIndietro,
+      modificaCp,
       registraPrimaria,
       aggiungiVoceSecondaria,
       modificaVoceSecondaria,
@@ -236,6 +270,7 @@ export function TrackerProvider({ children }) {
       nuovaPartita,
       avanzaTurno,
       tornaIndietro,
+      modificaCp,
       registraPrimaria,
       aggiungiVoceSecondaria,
       modificaVoceSecondaria,

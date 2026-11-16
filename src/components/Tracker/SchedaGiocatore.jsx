@@ -15,6 +15,7 @@ const COLORE_GIOCATORE = { blu: '#3b82f6', rosso: '#ef4444' };
 function SchedaGiocatore({ giocatore }) {
   const {
     stato,
+    modificaCp,
     registraPrimaria,
     aggiungiVoceSecondaria,
     modificaVoceSecondaria,
@@ -65,6 +66,18 @@ function SchedaGiocatore({ giocatore }) {
           <small> VP</small>
         </span>
       </header>
+      <div className={styles.cpRiga}>
+        <span className={styles.cpEtichetta}>CP</span>
+        <span className={styles.contatore}>
+          <button type="button" onClick={() => modificaCp(giocatore, -1)} aria-label="Togli un punto comando">
+            −
+          </button>
+          <span className={styles.contatoreValore}>{g.cp ?? 0}</span>
+          <button type="button" onClick={() => modificaCp(giocatore, 1)} aria-label="Aggiungi un punto comando">
+            +
+          </button>
+        </span>
+      </div>
       <div className={styles.barre}>
         <span>
           PRI {totali.primaria}/{LIMITI_VP.primariaTotale}

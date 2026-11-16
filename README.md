@@ -22,7 +22,7 @@ La selezione (fazione/sottofazione/distaccamenti) resta salvata in `localStorage
 
 ### Tracker
 
-Stesso tracker di partita del pannello "Tracker partita" di wargame_table (disposizione di forze, missione primaria e secondarie — tattiche pescate/scelte a mano o fisse —, round e turni, totali VP con i tetti per round/partita, statistica round × giocatore), ma come pagina a sé: senza il collegamento al tavolo/basette, quindi niente immagine di layout né tabella degli obiettivi (OC), che richiedono le basette posizionate su un tavolo che qui non esiste. Stato salvato in `localStorage`, indipendente da quello di Detach.
+Stesso tracker di partita del pannello "Tracker partita" di wargame_table (disposizione di forze, missione primaria e secondarie — tattiche pescate/scelte a mano o fisse —, round e turni, totali VP con i tetti per round/partita, statistica round × giocatore), ma come pagina a sé: senza il collegamento al tavolo/basette, quindi niente immagine di layout né tabella degli obiettivi (OC), che richiedono le basette posizionate su un tavolo che qui non esiste. Aggiunge, rispetto all'originale, un contatore **CP** per giocatore (parte da 1, +1 all'inizio di ogni proprio turno — annullato tornando indietro con ◀ —, pulsanti +/- per correzioni a mano, minimo 0). Stato salvato in `localStorage`, indipendente da quello di Detach.
 
 ## Dati
 
